@@ -12,17 +12,39 @@ Write a C program to print even numbers ranging from M to N (including M and N v
 7.	Continue the loop until you have iterated through all numbers from M to N.
 
 ## PROGRAM:
+#include <stdio.h>
+
+int main() {
+    int M, N;
+
+    // Input range from user
+    printf("Enter the value of M: ");
+    scanf("%d", &M);
+
+    printf("Enter the value of N: ");
+    scanf("%d", &N);
+
+    // Check if M is greater than N
+    if (M > N) {
+        printf("Invalid input: M should be less than or equal to N.\n");
+        return 1;
+    }
+
+    printf("Even numbers from %d to %d are:\n", M, N);
+
+    for (int i = M; i <= N; i++) {
+        if (i % 2 == 0) {
+            printf("%d ", i);
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
+
 
 ## OUTPUT:
-
-
-
-
-
-
-
-
-
+![M2 1](https://github.com/user-attachments/assets/8a6440b1-5777-4b68-a7f8-c58e2cbe2ebe)
 
 ## RESULT:
 Thus the program to print even numbers ranging from M to N (including M and N values) has been executed successfully
@@ -45,13 +67,29 @@ Write a C program to print the given triangular pattern using loop.
 5.	Continue the loop until you have printed the entire triangular pattern.
 
 ## PROGRAM:
+#include <stdio.h>
+
+int main() {
+    int i, j, rows;
+
+    // Input number of rows
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+
+    // Print triangle pattern
+    for(i = 1; i <= rows; i++) {
+        for(j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
 
 
 ## OUTPUT:
-
-
-
-
+![m2 2](https://github.com/user-attachments/assets/d36e930c-7cdb-4878-91ee-0de07819aed0)
 
 ## RESULT:
 
@@ -74,14 +112,40 @@ Write a C program to perform addition and subtraction of two numbers using funct
 4.	Call the addition and subtraction functions, passing the two numbers as arguments.
 
 ## PROGRAM:
+#include <stdio.h>
+
+// Function to perform addition
+void add(int a, int b) {
+    int sum = a + b;
+    printf("Addition: %d + %d = %d\n", a, b, sum);
+}
+
+// Function to perform subtraction
+void subtract(int a, int b) {
+    int diff = a - b;
+    printf("Subtraction: %d - %d = %d\n", a, b, diff);
+}
+
+int main() {
+    int num1, num2;
+
+    // Taking input from the user
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+
+    // Function calls with arguments
+    add(num1, num2);
+    subtract(num1, num2);
+
+    return 0;
+}
 
 
 ## OUTPUT:
-
-
-
-
-
+![m2 3](https://github.com/user-attachments/assets/3d351502-36d5-430c-9a39-09c04c60ae2e)
 
 ## RESULT:
 
@@ -106,11 +170,37 @@ Write a c program to find the sum of odd digits using for loop
 6.	Print the sum of odd digits.
 
 ## PROGRAM:
+#include <stdio.h>
+
+int main() {
+    int num, digit, sum = 0;
+
+    // Input a number
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    // Make a copy of num for iteration
+    int temp = num;
+
+    // Using for loop to go through each digit
+    for (; temp > 0; temp /= 10) {
+        digit = temp % 10;
+
+        // Check if digit is odd
+        if (digit % 2 != 0) {
+            sum += digit;
+        }
+    }
+
+    // Display the result
+    printf("Sum of odd digits in %d = %d\n", num, sum);
+
+    return 0;
+}
 
 
 ## OUTPUT:
-
-
+![m2 4](https://github.com/user-attachments/assets/b2eb97fe-9036-4e06-a471-71695a307b37)
 
 
 ## RESULT:
@@ -136,9 +226,40 @@ d.	After the loop, print the factorial value.
 5.	End
 
 ## PROGRAM:
+#include <stdio.h>
+
+// Function to calculate factorial
+int factorial(int n) {
+    int fact = 1;
+
+    for(int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+
+    return fact;
+}
+
+int main() {
+    int num;
+
+    // Taking input from user
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    // Checking for negative input
+    if (num < 0) {
+        printf("Factorial is not defined for negative numbers.\n");
+    } else {
+        int result = factorial(num);
+        printf("Factorial of %d is %d\n", num, result);
+    }
+
+    return 0;
+}
 
 
 ## OUTPUT:
+![m2 5](https://github.com/user-attachments/assets/5ea49942-6dd8-4a3a-825a-ed21ea436ff7)
 
 ## RESULT:
 The program correctly computes the factorial of a given number using a separate function and displays the result.
